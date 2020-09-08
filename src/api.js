@@ -12,29 +12,14 @@ app.use(bodyParser.urlencoded({ extended: true }))
 
 const uri = process.env.MONGO_URL
 
-if(process.env.NODE_ENV === 'test') {
-	const MockMongoose = require('mock-mongoose').MockMongoose
-	const mockMongoose = new MockMongoose(mongoose)
-	mockMongoose.prepareStorage().then(() => {
-		mongoose.connect(uri, {
-	    useNewUrlParser: true,
-  	  useUnifiedTopology: true
-  	})
-  	.then(() => {
-    	console.log('Mock MongoDB Connected...')
-  	})
-  	.catch(err => console.log(err))
-	})
-} else {
-	mongoose.connect(uri, {
-  	useNewUrlParser: true,
-  	useUnifiedTopology: true
-	})
-	.then(() => {
-  	console.log('MongoDB Connected...')
-	})
-	.catch(err => console.log(err))
-}
+mongoose.connect(uri, {
+	useNewUrlParser: true,
+  useUnifiedTopology: true
+})
+.then(() => {
+  console.log('MongoDB Connected...')
+})
+.catch(err => console.log(err))
 const db = mongoose.connection
 
 router.get('/', async (req, res) => {
