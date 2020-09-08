@@ -6,7 +6,7 @@
   "scripts": {
     "start": "netlify-lambda serve src",
     "build": "netlify-lambda build src",
-    "test": "mocha --exit"
+    "test": "mocha --timeout 10000 --exit"
   },
   "author": "",
   "license": "ISC",
