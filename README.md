@@ -2,3 +2,24 @@
 
 # netlify-express
 Using netlify to host a serverless express app
+
+## Getting started
+```
+npm install 
+```
+
+## Running the API
+### Local
+```
+npm start
+```
+API will be available at http://localhost:9000/.netlify/functions/api
+
+### Deployed
+The deployed API endpoint is available at https://cs3219-express.netlify.app/.netlify/functions/api
+
+## Testing the API
+### Local
+```
+npm test
+```
