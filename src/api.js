@@ -6,7 +6,9 @@ const Todo = require('../model/todo')
 require('dotenv').config()
 const app = express()
 const router = express.Router()
+const cors = require('cors')
 
+app.use(cors())
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 
